@@ -1,50 +1,53 @@
 #include "LinkedList.h"
 #include "GeometricBody.h"
 
-LinkedList::LinkedList( )
+LinkedList::LinkedList( ) : m_pTail( nullptr ), m_nSize( 0 )
 {
-	m_pHead = nullptr;
+	
 }
 
-LinkedList::~LinkedList(void)
+LinkedList::~LinkedList( )
 {
 	clean( );
 }
 
 void LinkedList::clean( )
 {
-	while (m_pHead != nullptr)
+	while ( m_pTail != nullptr )
 	{
-		GeometricBody* temp = m_pHead;
-		m_pHead = m_pHead->getNext( );
+		GeometricBody* temp = m_pTail;
+		m_pTail = m_pTail->getNext( );
 		delete temp;
 	}
+	m_nSize = 0;
 }
 
-void LinkedList::Add( GeometricBody* elem )
+void LinkedList::add( GeometricBody* elem )
 {
 	if( isEmpty( ) )
 	{
-		m_pHead = elem;
-		m_pHead->setNext( nullptr );
+		m_pTail = elem;
+		m_pTail->setNext( nullptr );
 	}
 	else
 	{
-		auto next = m_pHead; 
-		m_pHead = elem;
-		m_pHead->setNext( next );
+		auto next = m_pTail; 
+		m_pTail = elem;
+		m_pTail->setNext( next );
 	}
+	m_nSize++;
 }
 
 void LinkedList::showList( ) const
 {
 	if( isEmpty( ) ) 
 	{
+		std::cout << std::endl;
 		std::cout << "List is empty!" << std::endl;
 	}
 	else
 	{
-		auto temp = m_pHead;
+		auto temp = m_pTail;
 		while( temp != nullptr )
 		{
 			temp->showInfo( );

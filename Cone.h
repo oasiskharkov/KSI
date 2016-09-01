@@ -24,8 +24,14 @@ public:
 	// Calculate cone surface area
 	float area( ) const override;
 
-	// Make cube copy
+	// Make cone copy
 	GeometricBody* makeCopy( ) const override;
+
+	// Setup cone params
+	void setParams( ) override;
+
+	// Show cone params info
+	void showParams( ) const override;
 
 	// Get cone radius
 	float getRadius( ) const;
@@ -42,7 +48,7 @@ public:
 
 inline float Cone::volume( ) const
 {
-	return static_cast<float>(M_PI) * m_fRadius * m_fRadius * m_fHeight / 3.0f;
+	return static_cast<float>( M_PI ) * m_fRadius * m_fRadius * m_fHeight / 3.0f;
 }
 
 inline GeometricBody* Cone::makeCopy( ) const 

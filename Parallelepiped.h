@@ -27,9 +27,15 @@ public:
 	// Calculate parallelepiped surface area
 	float area( ) const override;
 
-	// Make cube copy
+	// Make parallelepiped copy
 	GeometricBody* makeCopy( ) const override;
 
+	// Setup parallelepiped params
+	void setParams( ) override;
+
+	// Show parallelepiped params info
+	void showParams( ) const override;
+	
 	// Get parallelepiped width
 	float getWidth( ) const;
 
@@ -93,7 +99,5 @@ inline void Parallelepiped::setHeight( float height )
 {
 	m_fHeight = height;
 }
-
-
 
 #endif

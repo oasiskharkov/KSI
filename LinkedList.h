@@ -5,21 +5,43 @@ class GeometricBody;
 
 class LinkedList
 {
-private:
-	GeometricBody* m_pHead;
+protected:
+	// Pointer to the tail of the list 
+	GeometricBody* m_pTail;
+
+	// List size
+	size_t m_nSize;
 public:
+	// Constructor 
 	LinkedList( );
+
+	// Virtual destructor
 	virtual ~LinkedList( );
+
+	// Is list empty
 	bool isEmpty( ) const;
+
+	// Clear list 
 	void clean( );
-	void Add( GeometricBody* elem );
+
+	// Add element
+	void add( GeometricBody* elem );
+
+	// Show list information
 	void showList( ) const;
+
+	// Get list size
+	size_t length( ) const; 
 };
 
 inline bool LinkedList::isEmpty( ) const
 {
-	return m_pHead == nullptr;
+	return m_pTail == nullptr;
+}
+
+inline size_t LinkedList::length( ) const
+{
+	return m_nSize;
 }
 
 #endif
-

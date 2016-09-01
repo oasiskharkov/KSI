@@ -8,7 +8,8 @@
 #include <string>
 #include <stdlib.h>
 #include <crtdbg.h>
+#include <conio.h>
 
 enum geometric_body { CYLINDER, PYRAMID, CUBE, PARALLELEPIPED, CONE, SPHERE };
 
-#endif 
+#endif

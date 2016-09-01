@@ -1,7 +1,7 @@
 #ifndef _GEOMETRIC_BODY_H_
 #define _GEOMETRIC_BODY_H_
 
-#include "service.h"
+#include "Service.h"
 
 class GeometricBody
 {
@@ -15,7 +15,7 @@ public:
 	// Constructor
 	GeometricBody( geometric_body type );
 	
-	// Destructor 
+	// Virtual destructor 
 	virtual ~GeometricBody( );
 	
 	// Calculate body volume
@@ -26,6 +26,12 @@ public:
 
 	// Create object copy 
 	virtual GeometricBody* makeCopy( ) const = 0;
+
+	// Set geometric body params
+	virtual void setParams( ) = 0;
+
+	// Show geometric body params info
+	virtual void showParams( ) const = 0;
 
 	// Show body info
 	void showInfo( ) const; 

@@ -24,6 +24,12 @@ public:
 	// Make cube copy
 	GeometricBody* makeCopy( ) const override;
 
+	// Setup cube params
+	void setParams( ) override;
+
+	// Show cube params info
+	void showParams( ) const override;
+
 	// Get cube side
 	float getSide( ) const;
 
@@ -57,4 +63,3 @@ inline GeometricBody* Cube::makeCopy( ) const
 }
 
 #endif
-
