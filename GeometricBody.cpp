@@ -35,10 +35,11 @@ void GeometricBody::showInfo( ) const
 		break;
 	}
 	
-	std::cout << std::endl;
 	std::cout << "Geometric body type: " << type << std::endl;
 	std::cout << "Volume: " << volume( ) << std::endl;
 	std::cout << "Surface area: " << area( ) << std::endl; 
-
+	
 	showParams( );
+
+	std::cout << std::endl;
 }

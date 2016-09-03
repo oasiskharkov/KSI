@@ -42,7 +42,6 @@ void LinkedList::showList( ) const
 {
 	if( isEmpty( ) ) 
 	{
-		std::cout << std::endl;
 		std::cout << "List is empty!" << std::endl;
 	}
 	else

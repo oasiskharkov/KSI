@@ -31,7 +31,10 @@ public:
 	void showList( ) const;
 
 	// Get list size
-	size_t length( ) const; 
+	size_t length( ) const;
+
+	// Get tail
+	GeometricBody* const getTail( ) const;
 };
 
 inline bool LinkedList::isEmpty( ) const
@@ -42,6 +45,11 @@ inline bool LinkedList::isEmpty( ) const
 inline size_t LinkedList::length( ) const
 {
 	return m_nSize;
+}
+
+inline GeometricBody* const LinkedList::getTail( ) const
+{
+	return static_cast<GeometricBody* const>( m_pTail );
 }
 
 #endif

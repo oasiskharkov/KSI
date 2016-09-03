@@ -20,6 +20,9 @@ private:
 
 	// Insert copy to the list after n-element 
 	void insertCopyAfterN();
+
+	// Show tail element information
+	void showTailElementInfo( );
 public:
 	// Constructor
 	Menu( );

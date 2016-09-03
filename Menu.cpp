@@ -20,6 +20,8 @@ Menu::~Menu( )
 
 void Menu::operate( char choice )
 {
+	std::cout << std::endl;
+
 	switch( choice )
 	{
 	case '1':
@@ -33,11 +35,12 @@ void Menu::operate( char choice )
 		break;
 	case '4':
 		m_list->clean( );
-		std::cout << std::endl;
 		break;
 	case '5':
-		std::cout << std::endl;
 		std::cout << "List size: " << m_list->length( ) << std::endl;
+		break;
+	case '6':
+		showTailElementInfo( );
 		break;
 	}
 }
@@ -51,17 +54,18 @@ void Menu::runInvitationLoop( )
 	std::cout << "3. Insert copy after the n-element." << std::endl;
 	std::cout << "4. Clear the list." << std::endl;
 	std::cout << "5. Show list size." << std::endl;
+	std::cout << "6. Show tail element information." << std::endl;
 
 	do
 	{
 		std::cout << std::endl;
-		std::cout << "Input option(1-5): ";
+		std::cout << "Input option(1-6): ";
 		choice = _getch( );
-		if(choice < '1' || choice > '5') 
+		if(choice < '1' || choice > '6') 
 		{
 			std::cout << "Uncorrect choice. Try again!" << std::endl;
 		}
-	} while( choice < '1' || choice > '5' );
+	} while( choice < '1' || choice > '6' );
 
 	operate( choice ); 
 }
@@ -71,7 +75,6 @@ void Menu::addGeometricBodyToList( )
 	char choice = '0';
 	GeometricBody* body;
 
-	std::cout << std::endl;
 	std::cout << "Choose geometric body type:" << std::endl;
 	std::cout << "1. Cone." << std::endl;
 	std::cout << "2. Cube." << std::endl;
@@ -120,7 +123,6 @@ void Menu::addGeometricBodyToList( )
 void Menu::insertCopyAfterN( )
 {
 	size_t n;
-	std::cout << std::endl;
 	std::cout << "Input number of element after which insert a copy: ";
 	std::cin >> n;
 	m_list->insert( n );
@@ -137,4 +139,16 @@ void Menu::runMainLoop( )
 		std::cout << std::endl;
 		choice = _getch( );
 	} while ( choice != 'n' && choice != 'N' );
+}
+
+void Menu::showTailElementInfo( )
+{
+	if( m_list->isEmpty( ) )
+	{
+		std::cout << "List is empty!" << std::endl;
+	}
+	else
+	{
+		m_list->getTail( )->showInfo( );
+	}
 }
